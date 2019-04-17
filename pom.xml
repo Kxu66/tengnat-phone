@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.tengnat</groupId>
+    <artifactId>tengnat-phone</artifactId>
+    <version>1.0.0</version>
+    <name>tengnat-phone</name>
+
+    <modules>
+        <module>im-api</module>
+        <module>tengnat-dao</module>
+        <module>tengnat-assistant</module>
+        <module>tengnat-elasticsearch</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <com.tengnat>1.0.0</com.tengnat>
+        <commons.lang>2.6</commons.lang>
+        <lombok.version>1.16.20</lombok.version>
+        <fastjson.version>1.2.44</fastjson.version>
+        <postgres.version>42.2.4</postgres.version>
+        <commons.beanutils>1.9.3</commons.beanutils>
+        <log4j2.web.version>2.10.0</log4j2.web.version>
+        <page.starter.version>1.2.5</page.starter.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <mybatis.starter.version>1.3.2</mybatis.starter.version>
+        <spring.boot.version>2.0.4.RELEASE</spring.boot.version>
+        <org.elasticsearch.client>6.4.3</org.elasticsearch.client>
+        <org.apache.httpcomponents>4.5.8</org.apache.httpcomponents>
+        <org.apache.tomcat.version>8.0.36</org.apache.tomcat.version>
+        <tk.mybatis.starter.version>2.0.2</tk.mybatis.starter.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.tengnat.imapi</groupId>
+                <artifactId>im-api</artifactId>
+                <version>${com.tengnat}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tengnat.mybatis</groupId>
+                <artifactId>tengnat-dao</artifactId>
+                <version>${com.tengnat}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tengnat.assistant</groupId>
+                <artifactId>tengnat-assistant</artifactId>
+                <version>${com.tengnat}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tengnat.elasticsearch</groupId>
+                <artifactId>tengnat-elasticsearch</artifactId>
+                <version>${com.tengnat}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-web</artifactId>
+                <version>${log4j2.web.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.beanutils}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <scope>runtime</scope>
+                <version>${postgres.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${page.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${org.apache.httpcomponents}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-servlet-api</artifactId>
+                <version>${org.apache.tomcat.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${org.elasticsearch.client}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

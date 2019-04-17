@@ -1,0 +1,30 @@
+server:
+  port: 20131
+  servlet:
+    context-path: /esdata
+    tomcat:
+      max-connections: 1000
+      max-threads: 1000
+      max-http-header-size: 8192
+      min-spare-threads: 100
+      accept-count: 1000
+spring:
+  mvc:
+    servlet:
+      load-on-startup: 1
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+      #测试服务器
+    redis:
+      host: 192.168.1.7
+      port: 6379
+      password: hwM7WWj77YhlLqrR
+  #  正式服务器
+#  redis:
+#    host: 172.17.0.118
+#    port: 6379
+#    password: G2STFh5ZDQoLjdoF
+
+edi:
+  client-id: O8fathafS8kjgRQ8RQ
