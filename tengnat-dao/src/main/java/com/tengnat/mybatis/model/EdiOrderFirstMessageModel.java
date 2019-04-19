@@ -1,21 +1,23 @@
-package com.tengnat.imapi.from;
+package com.tengnat.mybatis.model;
 
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-
+import java.util.Date;
 @Setter
 @Getter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDataFrom implements Serializable {
-    private static final long serialVersionUID = -3536524167622001874L;
-    @NotNull(message = "不为空")
+public class EdiOrderFirstMessageModel implements Serializable {
+    private static final long serialVersionUID = -5520451055686613741L;
+    private int fmId;
+    private String imFromAccount;
+    private String imTo;
+    private String fromOpenid;
+    private String toOpenid;
+    private String clientId;
     private Long sourceOrderId;
-    @NotNull(message = "不为空")
     private Long targetOrderId;
     private Long buyerExpectedReceivedDatetime;
     private String orderType;
@@ -31,6 +33,5 @@ public class OrderDataFrom implements Serializable {
     private String sourceOrderUrl;
     private String targetOrderUrl;
     private String materielImg;
-
-
+    private Date createTime;
 }

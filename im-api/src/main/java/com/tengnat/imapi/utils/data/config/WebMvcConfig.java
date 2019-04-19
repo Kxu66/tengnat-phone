@@ -23,7 +23,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         accessInterceptor.setObjectMapper(objectMapper);
         registry.addInterceptor(accessInterceptor).order(9000).excludePathPatterns("/phone/edi/authorize",
                 "/phone/push/send/message",
-                "/phone/push/edi/first/message");
+                "/phone/push/edi/first/message",
+                "/phone/push/findByToOrFromAccount");
 
     }
 }

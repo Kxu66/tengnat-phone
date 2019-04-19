@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/phone/push")
 public class ImPushmentController {
@@ -18,8 +20,9 @@ public class ImPushmentController {
     private ImPushmentService imPushmentService;
     //edi订单第一次时发送自定义消息
     @PostMapping("edi/first/message")
-    public JSONObject ediFirstMessage(@RequestBody OrderFrom orderFrom){
+    public JSONObject ediFirstMessage(@Validated @RequestBody OrderFrom orderFrom){
         JSONObject jsonObject = new JSONObject();
+        DataSourceHolder.setDataSourceType("0");
         this.imPushmentService.ediFirstMessage(orderFrom);
         jsonObject.put("code", 10000);
         jsonObject.put("data","");
@@ -35,6 +38,14 @@ public class ImPushmentController {
         jsonObject.put("code", 10000);
         jsonObject.put("data",comPushmessge);
         jsonObject.put("message","");
+        return jsonObject;
+    }
+    @GetMapping("/findByToOrFromAccount")
+    public JSONObject  findByToOrFromAccount(String fromAccount,String  to) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("code", 10000);
+        List list = this.imPushmentService.findByToOrFromAccount(fromAccount,to);
+        jsonObject.put("data", list);
         return jsonObject;
     }
 

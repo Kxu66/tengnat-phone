@@ -5,9 +5,13 @@ import com.tengnat.imapi.from.OrderDataFrom;
 import com.tengnat.imapi.from.OrderFrom;
 import com.tengnat.mybatis.entity.ComPushmessge;
 
+import java.util.List;
+
 public interface ImPushmentService  {
 
     void ediFirstMessage(OrderFrom orderFrom);
 
     ComPushmessge sendMessage(ComPushmessgeFrom comPushmessgeFrom);
+
+    List findByToOrFromAccount(String fromAccount, String to);
 }
