@@ -16,5 +16,10 @@ public interface EdiOrderFirstMessageMapper extends BaseMapper<EdiOrderFirstMess
     @ResultType(List.class)
     @Select("select * from edi_order_first_message o where  (o.im_from_account = #{imFromAccount} and o.im_to = #{imTo})or(o.im_from_account = #{imTo} and o.im_to = #{imFromAccount})")
     List<EdiOrderFirstMessageModel> selectByToOrFromAccount(@Param("imFromAccount")String imFromAccount, @Param("imTo")String imTo);
+    @ResultType(EdiOrderFirstMessageModel.class)
+    @Select("select * from edi_order_first_message o where ((o.source_order_id = #{sourceOrderId} and o.target_order_id = #{targetOrderId})or(o.source_order_id = #{targetOrderId} and o.target_order_id = #{sourceOrderId})) and ((o.im_from_account = #{imFromAccount} and o.im_to = #{imTo})or(o.im_from_account = #{imTo} and o.im_to = #{imFromAccount}))")
+    EdiOrderFirstMessageModel selectOrderFirstBySourceOrderIdAndTargetOrderIdAndFromAndTo(@Param("sourceOrderId")Long sourceOrderId,@Param("targetOrderId")Long targetOrderId, @Param("imFromAccount")String imFromAccount, @Param("imTo")String imTo);
 
+
+    void updateSaleOrPurchaseOrderStatus(EdiOrderFirstMessage ediOrderFirstMessage);
 }

@@ -17,6 +17,7 @@
 
     <modules>
         <module>im-api</module>
+        <module>test-web</module>
         <module>tengnat-dao</module>
         <module>tengnat-assistant</module>
         <module>tengnat-elasticsearch</module>

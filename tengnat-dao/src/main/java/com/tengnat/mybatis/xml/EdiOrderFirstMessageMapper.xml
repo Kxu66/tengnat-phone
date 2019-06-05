@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tengnat.mybatis.xml.EdiOrderFirstMessageMapper">
-
+<mapper namespace="com.tengnat.mybatis.mapper.EdiOrderFirstMessageMapper">
+    <update id="updateSaleOrPurchaseOrderStatus" parameterType="com.tengnat.mybatis.entity.EdiOrderFirstMessage">
+      update edi_order_first_message
+        <set>
+          <if test="buyerExpectedReceivedDatetime != null">
+              buyer_expected_received_datetime = #{buyerExpectedReceivedDatetime},
+          </if>
+          <if test="saleOrderStatus != null">
+              sale_order_status = #{saleOrderStatus},
+          </if>
+          <if test="purchaseOrderStatus != null">
+              purchase_order_status = #{purchaseOrderStatus},
+          </if>
+          <if test="salesSubStatus != null">
+              sales_sub_status = #{salesSubStatus},
+          </if>
+          <if test="purchaseSubStatus != null">
+              purchase_sub_status = #{purchaseSubStatus},
+          </if>
+        </set>
+      where fm_id = #{fmId}
+    </update>
 </mapper>
 
 

@@ -63,5 +63,18 @@ public class ReceiveMsgController {
         return jsonObject;
 
     }
+    @GetMapping("/findNewByEdiOrderIdOrToOrFromAccount")
+    public JSONObject findNewByEdiOrderIdOrToOrFromAccount(@RequestParam("orderId1") String orderId1,
+                                                           @RequestParam("orderId2") String orderId2,
+                                                        @RequestParam(value = "msgTimestamp", required = false) Long msgTimestamp,
+                                                        @RequestParam(value = "msgType", required = false) String msgType,
+                                                        @RequestParam("size") int size) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("code", 10000);
+        List<Map<String, Object>> list = receiveMsgService.findNewByEdiOrderIdOrToOrFromAccount(orderId1,orderId2,msgTimestamp,msgType,size);
+        jsonObject.put("data", list);
+        return jsonObject;
+
+    }
 
 }

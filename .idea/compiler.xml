@@ -10,15 +10,27 @@
         <module name="tengnat-assistant" />
         <module name="tengnat-dao" />
         <module name="tengnat-elasticsearch" />
+        <module name="test-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-service" target="1.8" />
+      <module name="tengnat-cloud" target="1.8" />
+      <module name="tengnat-cloud-config-server" target="1.8" />
+      <module name="tengnat-cloud-eureka" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-service" options="-parameters" />
       <module name="im-api" options="-parameters" />
       <module name="tengnat-assistant" options="-parameters" />
+      <module name="tengnat-cloud" options="" />
+      <module name="tengnat-cloud-config-server" options="" />
+      <module name="tengnat-cloud-eureka" options="" />
       <module name="tengnat-dao" options="-parameters" />
       <module name="tengnat-elasticsearch" options="-parameters" />
+      <module name="test-web" options="-parameters" />
     </option>
   </component>
 </project>

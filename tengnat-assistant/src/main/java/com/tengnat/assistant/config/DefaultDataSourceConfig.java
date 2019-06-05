@@ -24,7 +24,7 @@ public class DefaultDataSourceConfig {
         dataSource.setJdbcUrl(this.dataBaseProperties.getUrl());
         dataSource.setUsername(this.dataBaseProperties.getUsername());
         dataSource.setPassword(this.dataBaseProperties.getPassword());
-        dataSource.setMinimumIdle(this.dataBaseProperties.getHikari().getMinimumIdle());
+//        dataSource.setMinimumIdle(this.dataBaseProperties.getHikari().getMinimumIdle());
         dataSource.setMaximumPoolSize(this.dataBaseProperties.getHikari().getMaximumPoolSize());
         DynamicDataSource dynamicDatasouce = new DynamicDataSource();
         dynamicDatasouce.setTargetDataSources(Collections.emptyMap());

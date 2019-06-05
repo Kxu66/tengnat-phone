@@ -34,4 +34,24 @@ public class EdiOrderFirstMessageModel implements Serializable {
     private String targetOrderUrl;
     private String materielImg;
     private Date createTime;
+    /**
+     *  销售订单主状态
+     *  2 --未发送  3 --未确认  4 --未发货  5 --部分发货  6 --全部发货
+     *   7 --	部分收货  8 --全部收货  9 --已取消  10 --已完成
+     */
+    private Integer saleOrderStatus;
+    /**
+     ** 2 --未发送  3 --未确认  4 --未发货  5 --部分发货  6 --全部发货
+     *      * 7 --	部分收货  8 --全部收货  9 --已取消  10 --已完成
+     * 采购订单主状态
+     */
+    private Integer purchaseOrderStatus;
+    /**
+     * 销售订单子状态
+     */
+    private Integer salesSubStatus;
+    /**
+     * 采购订单子状态
+     */
+    private Integer purchaseSubStatus;
 }

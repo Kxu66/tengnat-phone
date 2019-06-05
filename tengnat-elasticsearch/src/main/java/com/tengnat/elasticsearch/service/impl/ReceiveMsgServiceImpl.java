@@ -96,4 +96,31 @@ public class ReceiveMsgServiceImpl implements ReceiveMsgService {
         searchRequest.source(sourceBuilder);
         return this.initElasticsearch.getSearchResponse(searchRequest);
     }
+
+    @Override
+    public List<Map<String, Object>> findNewByEdiOrderIdOrToOrFromAccount(String orderId1, String orderId2, Long msgTimestamp, String msgType, int size) {
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        sourceBuilder.from(0);
+        sourceBuilder.size(size);
+        //查询
+        QueryBuilder should = QueryBuilders.boolQuery().should(QueryBuilders.termQuery("orderId1", orderId1)).should(QueryBuilders.termQuery("orderId2", orderId2)).minimumShouldMatch(2);
+        QueryBuilder should1 = QueryBuilders.boolQuery().should(QueryBuilders.termQuery("orderId1", orderId2)).should(QueryBuilders.termQuery("orderId2", orderId1)).minimumShouldMatch(2);
+        QueryBuilder fromQ = QueryBuilders.boolQuery().should(should).should(should1).minimumShouldMatch(1);
+
+        BoolQueryBuilder boolBuilder = QueryBuilders.boolQuery();
+        if(!StringUtils.isEmpty(msgType)){
+            QueryBuilder msgTypeQ = QueryBuilders.termQuery("msgType", msgType);
+            boolBuilder.must(msgTypeQ);
+        }
+        boolBuilder.filter(fromQ).filter(QueryBuilders.rangeQuery("msgTimestamp").gt(msgTimestamp));
+        sourceBuilder.query(boolBuilder);
+        //排序
+        FieldSortBuilder fieldSortBuilder = new FieldSortBuilder("msgTimestamp");
+        fieldSortBuilder.order(SortOrder.ASC);
+        sourceBuilder.sort(fieldSortBuilder);
+        SearchRequest searchRequest = new SearchRequest("receives");
+        searchRequest.types("receive");
+        searchRequest.source(sourceBuilder);
+        return this.initElasticsearch.getSearchResponse(searchRequest);
+    }
 }

@@ -21,7 +21,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         AccessInterceptor accessInterceptor = new AccessInterceptor();
         accessInterceptor.setDataContainer(dataContainer);
         accessInterceptor.setObjectMapper(objectMapper);
-        registry.addInterceptor(accessInterceptor).order(9000).excludePathPatterns("/order/**");
+        registry.addInterceptor(accessInterceptor).order(9000).excludePathPatterns("/order/**","/receive/**");
 
     }
 }

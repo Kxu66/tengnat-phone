@@ -54,8 +54,8 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
                 dataSource.setJdbcUrl(resultSet.getString("dbcserver"));
                 dataSource.setUsername(resultSet.getString("dbcuser"));
                 dataSource.setPassword(resultSet.getString("dbcpwd"));
-                dataSource.setMinimumIdle(10);
-                dataSource.setMaximumPoolSize(100);
+                dataSource.setMinimumIdle(this.dataBaseProperties.getHikari().getMinimumIdle());
+                dataSource.setMaximumPoolSize(this.dataBaseProperties.getHikari().getMaximumPoolSize());
                 return dataSource;
             }
         } catch (Exception e) {

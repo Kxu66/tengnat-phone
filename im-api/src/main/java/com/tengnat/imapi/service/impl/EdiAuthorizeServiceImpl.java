@@ -22,7 +22,15 @@ public class EdiAuthorizeServiceImpl implements EdiAuthorizeService {
     @Autowired
     private EdiAuthorizeResources ediAuthorizeResources;
 
-
+/*
+* ###edi获取
+edi-authorize:
+  url: https://openapi.tengwow.com/api/v1.0/oauth/exchange_token?
+  auth-type: yi_yun_tong
+  app-id: lOakElSCTlmaHI6SWIcE5g
+  secret-key: MJIACRKUToKflEZeh19SsQ
+*
+* */
     @Override
     public ReturnData ediAuthorize(String openId, String clientId, String targetClientId) {
         String param = "openid=" + openId + "&client_id=" + clientId + "&target_client_id=" + targetClientId;

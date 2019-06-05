@@ -24,7 +24,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(accessInterceptor).order(9000).excludePathPatterns("/phone/edi/authorize",
                 "/phone/push/send/message",
                 "/phone/push/edi/first/message",
-                "/phone/push/findByToOrFromAccount");
+                "/phone/push/findByToOrFromAccount",
+                "/phone/push/send/message/purchase",
+                "/phone/push/send/message/market",
+                "/phone/push/update/order/status"
+                );
 
     }
 }

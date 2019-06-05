@@ -50,16 +50,16 @@ default-db:
   #  username: chinajey
   #  password: "PP341eA8MWiFVVtA"
   hikari:
-    minimum-idle: 15
-    maximum-pool-size: 100
+    minimum-idle: 5
+    maximum-pool-size: 5
 
 netease:
 #Production  正式
-#  appkey: 6a49f838770e729d12ecfa545d0d291e
-#  appsec: 79b7cf7129aa
+  appkey: 6a49f838770e729d12ecfa545d0d291e
+  appsec: 79b7cf7129aa
 #TEST DEV  测试
-  appkey: 4ba19a0b3de56648cfea2cef10d722ee
-  appsec: 9a115945d90a
+#  appkey: 4ba19a0b3de56648cfea2cef10d722ee
+#  appsec: 9a115945d90a
   url: https://api.netease.im/nimserver/
   nonce: 1234567890
   passwd: 03ba8364c8c6240b38429a0d74b7291a
@@ -71,7 +71,14 @@ logging:
         mybatis: debug
 
 edi-authorize:
+#  正式环境
   url: https://openapi.tengwow.com/api/v1.0/oauth/exchange_token?
   auth-type: yi_yun_tong
   app-id: lOakElSCTlmaHI6SWIcE5g
   secret-key: MJIACRKUToKflEZeh19SsQ
+
+# 测试环境
+#  url: https://openapi.twow-corp.com/api/v1.0/oauth/exchange_token?
+#  auth-type: yi_yun_tong
+#  app-id: jGSa9V6wR_ua16zmJ9xu2Q
+#  secret-key: QTOwGnd-ShShwuMkhFOltA

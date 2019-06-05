@@ -42,8 +42,8 @@ default-db:
   #  username: chinajey
   #  password: "PP341eA8MWiFVVtA"
   hikari:
-    minimum-idle: 15
-    maximum-pool-size: 100
+    minimum-idle: 1
+    maximum-pool-size: 1
 netease:
   #Production  正式
   #  appkey: 6a49f838770e729d12ecfa545d0d291e

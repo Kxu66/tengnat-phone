@@ -11,7 +11,7 @@
     <groupId>com.tengnat.elasticsearch</groupId>
     <artifactId>tengnat-elasticsearch</artifactId>
     <version>1.0.0</version>
-    <name>tengnat-elasticsearch</name>
+    <name>elasticsearch</name>
 
     <packaging>jar</packaging>
 

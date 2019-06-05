@@ -14,5 +14,5 @@ public interface ReceiveMsgService {
     List<Map<String, Object>> findByEdiOrderIdOrToOrFromAccount(String orderId1, String orderId2, Long msgTimestamp, String msgType, int size);
 
 
-
+    List<Map<String, Object>> findNewByEdiOrderIdOrToOrFromAccount(String orderId1, String orderId2, Long msgTimestamp, String msgType, int size);
 }

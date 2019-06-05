@@ -16,15 +16,58 @@ spring:
     serialization:
       write-dates-as-timestamps: true
       #测试服务器
-    redis:
-      host: 192.168.1.7
-      port: 6379
-      password: hwM7WWj77YhlLqrR
+#    redis:
+#      host: 192.168.1.7
+#      port: 6379
+#      password: hwM7WWj77YhlLqrR
   #  正式服务器
-#  redis:
-#    host: 172.17.0.118
-#    port: 6379
-#    password: G2STFh5ZDQoLjdoF
+  redis:
+    host: 172.17.0.118
+    port: 6379
+    password: G2STFh5ZDQoLjdoF
+mybatis:
+  type-aliases-package: com.tengnat.mybatis.entity
+  mapper-locations: classpath*:com/tengnat/mybatis/xml/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+mapper:
+  mappers: tk.mybatis.mapper.common.BaseMapper
+  not-empty: true
+  enum-as-simple-type: true
+pagehelper:
+  helper-dialect: postgresql
+  params: countSql
+  reasonable: false
+  support-methods-arguments: true
+
+default-db:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://postgres-mkabzdxk.sql.tencentcdb.com:16797/wd_common?useUnicode=true&characterEncoding=utf8
+  username: chinajeyyyt
+  password: "b$qn2nyM4$9qK$R2"
+  #  url: jdbc:postgresql://192.168.1.23:5432/wd_common?useUnicode=true&characterEncoding=utf8
+  #  username: chinajey
+  #  password: "PP341eA8MWiFVVtA"
+  hikari:
+    minimum-idle: 1
+    maximum-pool-size: 1
+netease:
+  #Production  正式
+  #  appkey: 6a49f838770e729d12ecfa545d0d291e
+  #  appsec: 79b7cf7129aa
+  #TEST DEV  测试
+  appkey: 4ba19a0b3de56648cfea2cef10d722ee
+  appsec: 9a115945d90a
+  url: https://api.netease.im/nimserver/
+  nonce: 1234567890
+  passwd: 03ba8364c8c6240b38429a0d74b7291a
+
+logging:
+  level:
+    com:
+      tengnat:
+        mybatis: debug
 
 edi:
   client-id: O8fathafS8kjgRQ8RQ
