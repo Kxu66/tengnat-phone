@@ -29,7 +29,7 @@
         <commons.lang>2.6</commons.lang>
         <lombok.version>1.16.20</lombok.version>
         <fastjson.version>1.2.44</fastjson.version>
-        <postgres.version>42.2.4</postgres.version>
+        <postgres.version>42.3.3</postgres.version>
         <commons.beanutils>1.9.3</commons.beanutils>
         <log4j2.web.version>2.10.0</log4j2.web.version>
         <page.starter.version>1.2.5</page.starter.version>
